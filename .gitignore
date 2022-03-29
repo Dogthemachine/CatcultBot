@@ -1,0 +1,13 @@
+*.py[cod]
+.*.sw[a-z]
+*.un~
+*.log
+*.pot
+.env
+.idea
+*.sqlite3
+.bash_profile
+docker-compose.yaml
+git_token.rtf
+.DS_Store
+
