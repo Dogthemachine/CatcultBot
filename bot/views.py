@@ -7,6 +7,7 @@ telegram_bot = telebot.TeleBot(settings.TELEGRAM_BOT_TOKEN, threaded=False)
 
 def telegram_webhook(request):
     if request.method == "POST" and request.content_type == "application/json":
+        print("TEST PRINT")
         try:
             json_string = request.body.decode("utf-8")
             update = telebot.types.Update.de_json(json_string)
