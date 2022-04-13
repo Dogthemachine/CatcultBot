@@ -5,9 +5,11 @@ from django.conf import settings
 
 telegram_bot = telebot.TeleBot(settings.TELEGRAM_BOT_TOKEN, threaded=False)
 
+print("\n\n\n BOT TOKEN", settings.TELEGRAM_BOT_TOKEN)
+
 def telegram_webhook(request):
+    print("TEST PRINT DEF")
     if request.method == "POST" and request.content_type == "application/json":
-        print("TEST PRINT")
         try:
             json_string = request.body.decode("utf-8")
             update = telebot.types.Update.de_json(json_string)
