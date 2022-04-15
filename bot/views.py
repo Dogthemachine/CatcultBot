@@ -3,7 +3,7 @@ import telebot
 from django.conf import settings
 
 
-telegram_bot = telebot.TeleBot(settings.TELEGRAM_BOT_TOKEN, threaded=False)
+telegram_bot = telebot.TeleBot(settings.TELEGRAM_BOT_TOKEN)
 
 print("\n\n\n BOT TOKEN", settings.TELEGRAM_BOT_TOKEN)
 
