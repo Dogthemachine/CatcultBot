@@ -1,6 +1,7 @@
 from django.http import HttpResponse
 import telebot
 from django.conf import settings
+from django.views.decorators.csrf import csrf_exempt
 
 
 telegram_bot = telebot.TeleBot(settings.TELEGRAM_BOT_TOKEN)
@@ -20,12 +21,15 @@ def telegram_webhook(request):
             # stat.telegram = True
             # stat.vacancy = update.message.text[:128]
             # stat.save()
+            print("PRINT update.message.text", update.message.text)
             telegram_bot.process_new_messages([update.message])
+            print("AFTER telegram_bot.process_new_messages")
         return HttpResponse(status=200)
     else:
+
         return HttpResponse(status=403)
 
-
+@csrf_exempt
 @telegram_bot.message_handler(commands=["help", "start"])
 def telegram_welcome(message):
     text = "help / start commands"
